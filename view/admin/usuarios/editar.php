@@ -1,19 +1,19 @@
 <h3>
     <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| </span>
-    <a href="<?php echo $_SESSION['home'] ?>admin/usuarios" title="Usuarios">Usuarios</a> <span>| </span>
+    <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">personas</a> <span>| </span>
     <?php if ($datos->id){ ?>
-        <span>Editar <?php echo $datos->usuario ?></span>
+        <span>Editar <?php echo $datos->ersona ?></span>
     <?php } else { ?>
-        <span>Nuevo usuario</span>
+        <span>Nuevo persona</span>
     <?php } ?>
 </h3>
 <div class="row">
     <?php $id = ($datos->id) ? $datos->id : "nuevo" ?>
-    <form class="col m12 l6" method="POST" action="<?php echo $_SESSION['home'] ?>admin/usuarios/editar/<?php echo $id ?>">
+    <form class="col m12 l6" method="POST" action="<?php echo $_SESSION['home'] ?>admin/personas/editar/<?php echo $id ?>">
         <div class="row">
             <div class="input-field col s12">
-                <input id="usuario" type="text" name="usuario" value="<?php echo $datos->usuario ?>">
-                <label for="usuario">Usuario</label>
+                <input id="persona" type="text" name="persona" value="<?php echo $datos->persona ?>">
+                <label for="ersona">persona</label>
             </div>
             <?php $clase = ($datos->id) ? "hide" : "" ?>
             <div class="input-field col s12 <?php echo $clase ?>" id="password">
@@ -31,15 +31,15 @@
         <div class="row">
             <p>Permisos</p>
             <p>
-                <label for="noticias">
-                    <input id="noticias" name="noticias" type="checkbox" <?php echo ($datos->noticias == 1) ? "checked" : "" ?>>
-                    <span>Noticias</span>
+                <label for="equipos">
+                    <input id="equipos" name="equipos" type="checkbox" <?php echo ($datos->equipos == 1) ? "checked" : "" ?>>
+                    <span>Equipos</span>
                 </label>
             </p>
             <p>
-                <label for="usuarios">
-                    <input id="usuarios" name="usuarios" type="checkbox" <?php echo ($datos->usuarios == 1) ? "checked" : "" ?>>
-                    <span>Usuarios</span>
+                <label for="personas">
+                    <input id="personas" name="personas" type="checkbox" <?php echo ($datos->personas == 1) ? "checked" : "" ?>>
+                    <span>personas</span>
                 </label>
             </p>
             <?php $clase = ($datos->id) ? "" : "hide" ?>
@@ -47,7 +47,7 @@
                 Último acceso: <strong><?php echo date("d/m/Y H:i", strtotime($datos->fecha_acceso)) ?></strong>
             </p>
             <div class="input-field col s12">
-                <a href="<?php echo $_SESSION['home'] ?>admin/usuarios" title="Volver">
+                <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="Volver">
                     <button class="btn waves-effect waves-light" type="button">Volver
                         <i class="material-icons right">replay</i>
                     </button>

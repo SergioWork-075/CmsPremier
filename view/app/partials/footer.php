@@ -2,8 +2,8 @@
 </main>
 <footer class="center-align">
     © <?php echo date("Y") ?>
-    <a href="https://jairogarciarincon.com" target="_blank" title="Jairo García Rincón">
-        Jairo García Rincón
+    <a href="https://www.premierleague.com/home" target="_blank" title="Premier League Associate">
+        Premier League Associate
     </a>
 </footer>
 
@@ -20,8 +20,8 @@
 </main>
 <footer class="center-align">
     © <?php echo date("Y") ?> Panel de Administración.
-    <a href="https://jairogarciarincon.com" target="_blank" title="Jairo García Rincón">
-        Jairo García Rincón
+    <a href="https://www.premierleague.com/home" target="_blank" title="Premier League Associate">
+        Premier League Associate
     </a>
 </footer>
 

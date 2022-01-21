@@ -20,7 +20,7 @@
             <img src="<?php echo $_SESSION['public'] ?>img/logo.svg" alt="Logo Harry Potter">
         </a>
 
-        <?php if (isset($_SESSION['usuario'])){ ?>
+        <?php if (isset($_SESSION['persona'])){ ?>
 
             <!--Botón menú móviles-->
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -30,14 +30,14 @@
                 <li>
                     <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a>
                 </li>
-                <?php if ($_SESSION['noticias'] == 1){ ?>
+                <?php if ($_SESSION['equipos'] == 1){ ?>
                     <li>
                         <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a>
                     </li>
                 <?php } ?>
-                <?php if ($_SESSION['usuarios'] == 1){ ?>
+                <?php if ($_SESSION['personas'] == 1){ ?>
                     <li>
-                        <a href="<?php echo $_SESSION['home'] ?>admin/usuarios" title="Usuarios">Usuarios</a>
+                        <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">personas</a>
                     </li>
                 <?php } ?>
                 <li>
@@ -50,21 +50,21 @@
     </div>
 </nav>
 
-<?php if (isset($_SESSION['usuario'])){ ?>
+<?php if (isset($_SESSION['persona'])){ ?>
 
     <!--Menú de navegación móvil-->
     <ul class="sidenav" id="mobile-demo">
         <li>
             <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a>
         </li>
-        <?php if ($_SESSION['noticias'] == 1){ ?>
+        <?php if ($_SESSION['equipos'] == 1){ ?>
             <li>
                 <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a>
             </li>
         <?php } ?>
-        <?php if ($_SESSION['usuarios'] == 1){ ?>
+        <?php if ($_SESSION['personas'] == 1){ ?>
             <li>
-                <a href="<?php echo $_SESSION['home'] ?>admin/usuarios" title="Usuarios">Usuarios</a>
+                <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">personas</a>
             </li>
         <?php } ?>
         <li>
@@ -91,15 +91,15 @@
     <header>
         <h1>Panel de administración</h1>
 
-        <?php if (isset($_SESSION['usuario'])){ ?>
+        <?php if (isset($_SESSION['persona'])){ ?>
 
             <h2>
-                Usuario: <strong><?php echo $_SESSION['usuario'] ?></strong>
+                Usuario: <strong><?php echo $_SESSION['persona'] ?></strong>
             </h2>
 
         <?php } else { ?>
 
-            <h2>Bienvenido, introduce usuario y contraseña.</h2>
+            <h2>Bienvenido, introduce el nombre y contraseña.</h2>
 
         <?php } ?>
     </header>

@@ -3,8 +3,8 @@
     <form class="col m12 l6" method="POST">
         <div class="row">
             <div class="input-field col s12">
-                <input id="usuario" type="text" name="usuario" value="">
-                <label for="usuario">Usuario</label>
+                <input id="persona" type="text" name="persona" value="">
+                <label for="persona">persona</label>
             </div>
             <div class="input-field col s12">
                 <input id="clave" type="password" name="clave" value="">

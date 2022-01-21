@@ -1,24 +1,24 @@
 <h3>
     <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| </span>
-    <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a> <span>| </span>
+    <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="equipos">Equipos</a> <span>| </span>
     <?php if ($datos->id){ ?>
-        <span>Editar <?php echo $datos->titulo ?></span>
+        <span>Editar <?php echo $datos->nombre ?></span>
     <?php } else { ?>
-        <span>Nueva noticia</span>
+        <span>Nuevo Equipo</span>
     <?php } ?>
 </h3>
 <div class="row">
     <?php $id = ($datos->id) ? $datos->id : "nuevo" ?>
-    <form class="col s12" method="POST" enctype="multipart/form-data" action="<?php echo $_SESSION['home'] ?>admin/noticias/editar/<?php echo $id ?>">
+    <form class="col s12" method="POST" enctype="multipart/form-data" action="<?php echo $_SESSION['home'] ?>admin/equipos/editar/<?php echo $id ?>">
         <div class="col m12 l6">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="titulo" type="text" name="titulo" value="<?php echo $datos->titulo ?>">
-                    <label for="titulo">Título</label>
+                    <input id="nombre" type="text" name="nombre" value="<?php echo $datos->nombre ?>">
+                    <label for="nombre">Título</label>
                 </div>
                 <div class="input-field col s12">
-                    <input id="autor" type="text" name="autor" value="<?php echo $datos->autor ?>">
-                    <label for="autor">Autor</label>
+                    <input id="provincia" type="text" name="provincia" value="<?php echo $datos->provincia ?>">
+                    <label for="provincia">provincia</label>
                 </div>
                 <div class="input-field col s12">
                     <?php $fecha = ($datos->fecha) ? date("d-m-Y", strtotime($datos->fecha)) : date("d-m-Y") ?>
@@ -38,25 +38,25 @@
                 </div>
             </div>
             <?php if ($datos->imagen){ ?>
-                <img src="<?php echo $_SESSION['public']."img/".$datos->imagen ?>" alt="<?php echo $datos->titulo ?>">
+                <img src="<?php echo $_SESSION['public']."img/".$datos->imagen ?>" alt="<?php echo $datos->nombre ?>">
             <?php } ?>
         </div>
         <div class="col s12">
             <div class="row">
                 <div class="input-field col s12">
-                    <textarea id="entradilla" class="materialize-textarea" name="entradilla"><?php echo $datos->entradilla ?></textarea>
-                    <label for="entradilla">Entradilla</label>
+                    <textarea id="introduccion" class="materialize-textarea" name="introduccion"><?php echo $datos->introduccion ?></textarea>
+                    <label for="introduccion">introduccion</label>
                 </div>
                 <div class="input-field col s12">
-                    <textarea id="texto" class="materialize-textarea" name="texto"><?php echo $datos->texto ?></textarea>
-                    <label for="texto">Texto</label>
+                    <textarea id="descripcion" class="materialize-textarea" name="descripcion"><?php echo $datos->descripcion ?></textarea>
+                    <label for="descripcion">descripcion</label>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s12">
-                <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Volver">
+                <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="Volver">
                     <button class="btn waves-effect waves-light" type="button">Volver
                         <i class="material-icons right">replay</i>
                     </button>

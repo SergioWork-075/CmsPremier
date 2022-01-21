@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller;
 
-use App\Model\Noticia;
+use App\Model\Equipo;
 use App\Helper\ViewHelper;
 use App\Helper\DbHelper;
 
@@ -25,12 +25,12 @@ class AppController
     public function index(){
 
         //Consulta a la bbdd
-        $rowset = $this->db->query("SELECT * FROM noticias WHERE activo=1 AND home=1 ORDER BY fecha DESC");
+        $rowset = $this->db->query("SELECT * FROM equipos WHERE activo=1 AND home=1 ORDER BY fecha DESC");
 
         //Asigno resultados a un array de instancias del modelo
         $noticias = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($noticias,new Noticia($row));
+            array_push($noticias,new Equipo($row));
         }
 
         //Llamo a la vista
@@ -47,27 +47,27 @@ class AppController
     public function noticias(){
 
         //Consulta a la bbdd
-        $rowset = $this->db->query("SELECT * FROM noticias WHERE activo=1 ORDER BY fecha DESC");
+        $rowset = $this->db->query("SELECT * FROM equipos WHERE activo=1 ORDER BY fecha DESC");
 
         //Asigno resultados a un array de instancias del modelo
         $noticias = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($noticias,new Noticia($row));
+            array_push($noticias,new Equipo($row));
         }
 
         //Llamo a la vista
-        $this->view->vista("app", "noticias", $noticias);
+        $this->view->vista("app", "equipos", $noticias);
 
     }
 
     public function noticia($slug){
 
         //Consulta a la bbdd
-        $rowset = $this->db->query("SELECT * FROM noticias WHERE activo=1 AND slug='$slug' LIMIT 1");
+        $rowset = $this->db->query("SELECT * FROM equipos WHERE activo=1 AND slug='$slug' LIMIT 1");
 
         //Asigno resultado a una instancia del modelo
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $noticia = new Noticia($row);
+        $noticia = new Equipo($row);
 
         //Llamo a la vista
         $this->view->vista("app", "noticia", $noticia);
