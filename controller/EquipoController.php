@@ -34,7 +34,7 @@ class EquipoController
         //Asigno resultados a un array de instancias del modelo
         $equipos = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($equipos,new equipo($row));
+            array_push($equipos,new Componentes($row));
         }
 
         $this->view->vista("admin","equipos/index", $equipos);
@@ -50,7 +50,7 @@ class EquipoController
         //Obtengo la equipo
         $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $equipo = new equipo($row);
+        $equipo = new Componentes($row);
 
         if ($equipo->activo == 1){
 
@@ -59,7 +59,7 @@ class EquipoController
 
             //Mensaje y redirección
             ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-                $this->view->redireccionConMensaje("admin/equipos","green","La equipo <strong>$equipo->nombre</strong> se ha desactivado correctamente.") :
+                $this->view->redireccionConMensaje("admin/equipos","green","El equipo <strong>$equipo->nombre</strong> se ha desactivado correctamente.") :
                 $this->view->redireccionConMensaje("admin/equipos","red","Hubo un error al guardar en la base de datos.");
         }
 
@@ -70,7 +70,7 @@ class EquipoController
 
             //Mensaje y redirección
             ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-                $this->view->redireccionConMensaje("admin/equipos","green","La equipo <strong>$equipo->nombre</strong> se ha activado correctamente.") :
+                $this->view->redireccionConMensaje("admin/equipos","green","El equipo <strong>$equipo->nombre</strong> se ha activado correctamente.") :
                 $this->view->redireccionConMensaje("admin/equipos","red","Hubo un error al guardar en la base de datos.");
         }
 
@@ -85,7 +85,7 @@ class EquipoController
         //Obtengo la equipo
         $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $equipo = new equipo($row);
+        $equipo = new Componentes($row);
 
         if ($equipo->home == 1){
 
@@ -94,7 +94,7 @@ class EquipoController
 
             //Mensaje y redirección
             ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-                $this->view->redireccionConMensaje("admin/equipos","green","La equipo <strong>$equipo->nombre</strong> ya no se muestra en la home.") :
+                $this->view->redireccionConMensaje("admin/equipos","green","El equipo <strong>$equipo->nombre</strong> ya no se muestra en la home.") :
                 $this->view->redireccionConMensaje("admin/equipos","red","Hubo un error al guardar en la base de datos.");
         }
 
@@ -105,7 +105,7 @@ class EquipoController
 
             //Mensaje y redirección
             ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-                $this->view->redireccionConMensaje("admin/equipos","green","La equipo <strong>$equipo->nombre</strong> ahora se muestra en la home.") :
+                $this->view->redireccionConMensaje("admin/equipos","green","El equipo <strong>$equipo->nombre</strong> ahora se muestra en la home.") :
                 $this->view->redireccionConMensaje("admin/equipos","red","Hubo un error al guardar en la base de datos.");
         }
 
@@ -119,7 +119,7 @@ class EquipoController
         //Obtengo la equipo
         $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $equipo = new equipo($row);
+        $equipo = new Componentes($row);
 
         //Borro la equipo
         $consulta = $this->db->exec("DELETE FROM equipos WHERE id='$id'");
@@ -134,7 +134,7 @@ class EquipoController
 
         //Mensaje y redirección
         ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-            $this->view->redireccionConMensaje("admin/equipos","green","La equipo se ha borrado correctamente$descripcion_imagen.") :
+            $this->view->redireccionConMensaje("admin/equipos","green","El equipo se ha borrado correctamente$descripcion_imagen.") :
             $this->view->redireccionConMensaje("admin/equipos","red","Hubo un error al guardar en la base de datos.");
 
     }
@@ -145,7 +145,7 @@ class EquipoController
         $this->view->permisos("equipos");
 
         //Creo un nuevo usuario vacío
-        $equipo = new equipo();
+        $equipo = new Componentes();
 
         //Llamo a la ventana de edición
         $this->view->vista("admin","equipos/editar", $equipo);
@@ -198,7 +198,7 @@ class EquipoController
 
                 //Mensaje y redirección
                 ($consulta > 0) ?
-                    $this->view->redireccionConMensaje("admin/equipos","green","La equipo <strong>$nombre</strong> se creado correctamente.".$descripcion_img) :
+                    $this->view->redireccionConMensaje("admin/equipos","green","El equipo <strong>$nombre</strong> se creado correctamente.".$descripcion_img) :
                     $this->view->redireccionConMensaje("admin/equipos","red","Hubo un error al guardar en la base de datos.");
             }
             else{
@@ -220,7 +220,7 @@ class EquipoController
                 }
 
                 //Mensaje y redirección
-                $this->view->redireccionConMensaje("admin/equipos","green","La equipo <strong>$nombre</strong> se guardado correctamente.".$descripcion_img);
+                $this->view->redireccionConMensaje("admin/equipos","green","El equipo <strong>$nombre</strong> se guardado correctamente.".$descripcion_img);
 
             }
         }
@@ -231,7 +231,7 @@ class EquipoController
             //Obtengo la equipo
             $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
-            $equipo = new equipo($row);
+            $equipo = new Componentes($row);
 
             //Llamo a la ventana de edición
             $this->view->vista("admin","equipos/editar", $equipo);

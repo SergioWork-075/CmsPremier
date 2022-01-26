@@ -1,6 +1,6 @@
 <h3>
     <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| </span>
-    <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="equipos">Equipos</a> <span>| </span>
+    <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="Equipos">Equipos</a> <span>| </span>
     <?php if ($datos->id){ ?>
         <span>Editar <?php echo $datos->nombre ?></span>
     <?php } else { ?>
