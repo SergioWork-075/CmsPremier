@@ -34,7 +34,7 @@ class EquipoController
         //Asigno resultados a un array de instancias del modelo
         $equipos = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($equipos,new Componentes($row));
+            array_push($equipos,new Equipo($row));
         }
 
         $this->view->vista("admin","equipos/index", $equipos);
@@ -50,7 +50,7 @@ class EquipoController
         //Obtengo la equipo
         $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $equipo = new Componentes($row);
+        $equipo = new Equipo($row);
 
         if ($equipo->activo == 1){
 
@@ -85,7 +85,7 @@ class EquipoController
         //Obtengo la equipo
         $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $equipo = new Componentes($row);
+        $equipo = new Equipo($row);
 
         if ($equipo->home == 1){
 
@@ -119,7 +119,7 @@ class EquipoController
         //Obtengo la equipo
         $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $equipo = new Componentes($row);
+        $equipo = new Equipo($row);
 
         //Borro la equipo
         $consulta = $this->db->exec("DELETE FROM equipos WHERE id='$id'");
@@ -145,7 +145,7 @@ class EquipoController
         $this->view->permisos("equipos");
 
         //Creo un nuevo usuario vacío
-        $equipo = new Componentes();
+        $equipo = new Equipo();
 
         //Llamo a la ventana de edición
         $this->view->vista("admin","equipos/editar", $equipo);
@@ -231,7 +231,7 @@ class EquipoController
             //Obtengo la equipo
             $rowset = $this->db->query("SELECT * FROM equipos WHERE id='$id' LIMIT 1");
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
-            $equipo = new Componentes($row);
+            $equipo = new Equipo($row);
 
             //Llamo a la ventana de edición
             $this->view->vista("admin","equipos/editar", $equipo);

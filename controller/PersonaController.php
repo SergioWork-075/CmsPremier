@@ -52,7 +52,7 @@ class PersonaController
 
             //Asigno resultado a una instancia del modelo
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
-            $persona = new Trabajadores($row);
+            $persona = new Persona($row);
 
             //Si existe el Persona
             if ($persona->persona){
@@ -111,7 +111,7 @@ class PersonaController
         //Asigno resultados a un array de instancias del modelo
         $personas = array();
         while ($row = $rowset->fetch(\PDO::FETCH_OBJ)){
-            array_push($personas,new Trabajadores($row));
+            array_push($personas,new Persona($row));
         }
 
         $this->view->vista("admin","personas/index", $personas);
@@ -127,7 +127,7 @@ class PersonaController
         //Obtengo el Persona
         $rowset = $this->db->query("SELECT * FROM personas WHERE id='$id' LIMIT 1");
         $row = $rowset->fetch(\PDO::FETCH_OBJ);
-        $persona = new Trabajadores($row);
+        $persona = new Persona($row);
 
         if ($persona->activo == 1){
 
@@ -136,7 +136,7 @@ class PersonaController
 
             //Mensaje y redirección
             ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-                $this->view->redireccionConMensaje("admin/personas","green","La Persona <strong>$persona->persona</strong> se ha desactivado correctamente.") :
+                $this->view->redireccionConMensaje("admin/personas","green","La Persona <strong>$persona->Persona</strong> se ha desactivado correctamente.") :
                 $this->view->redireccionConMensaje("admin/personas","red","Hubo un error al guardar en la base de datos.");
         }
 
@@ -174,7 +174,7 @@ class PersonaController
         $this->view->permisos("personas");
 
         //Creo un nuevo Persona vacío
-        $persona = new Trabajadores();
+        $persona = new Persona();
 
         //Llamo a la ventana de edición
         $this->view->vista("admin","personas/editar", $persona);
@@ -225,7 +225,7 @@ class PersonaController
             //Obtengo la Persona
             $rowset = $this->db->query("SELECT * FROM personas WHERE id='$id' LIMIT 1");
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
-            $persona = new Trabajadores($row);
+            $persona = new Persona($row);
 
             //Llamo a la ventana de edición
             $this->view->vista("admin","personas/editar", $persona);

@@ -1,5 +1,5 @@
 <h3>
-    <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| personas</span>
+    <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| Personas</span>
 </h3>
 <div class="row">
     <!--Nuevo-->
@@ -9,7 +9,7 @@
                 <div class="card-content">
                     <i class="grey-text material-icons medium">person</i>
                     <h4 class="grey-text">
-                        nueva persona
+                        Nueva persona
                     </h4><br><br>
                 </div>
                 <div class="card-action">
@@ -29,7 +29,7 @@
                         <h4>
                             <?php echo $row->persona ?>
                         </h4>
-                        <strong>personas: </strong><?php echo ($row->personas) ? "Sí" : "No" ?><br>
+                        <strong>Personas: </strong><?php echo ($row->personas) ? "Sí" : "No" ?><br>
                         <strong>Equipos: </strong><?php echo ($row->Equipos) ? "Sí" : "No" ?>
                     </div>
                     <div class="card-action">

@@ -9,6 +9,9 @@ use App\Controller\AppController;
 use App\Controller\EquipoController;
 use App\Controller\PersonaController;
 
+//echo password_hash("1234Abcd!",  PASSWORD_BCRYPT, ['cost'=>12]); //-->para añadir personas
+
+
 /*
  * Asigno a sesión las rutas de las carpetas public y home, necesarias tanto para las rutas como para
  * poder enlazar imágenes y archivos css, js
@@ -46,12 +49,14 @@ function autoload($clase,$dir=null){
 function controlador($nombre=null){
 
     switch($nombre){
-        default: return new AppController;
-        case "equipos": return new EquipoController;
-        case "personas": return new PersonaController;
+        default: return new AppController; //Front-end
+        case "equipos": return new EquipoController; //Back-end equipos
+        case "personas": return new PersonaController(); //Autentificacion y Back-end de personas
     }
 
 }
+
+
 
 //Quito la ruta de la home a la que me están pidiendo
 $ruta = str_replace($_SESSION['home'], '', $_SERVER['REQUEST_URI']);
@@ -70,8 +75,8 @@ switch ($ruta){
     case "equipos":
         controlador()->equipos();
         break;
-    case (strpos($ruta,"equipo/") === 0):
-        controlador()->equipo(str_replace("equipo/","",$ruta));
+    case (strpos($ruta,"equipo/") === 0): //Si la ruta empieza por "equipo/"
+        controlador()->equipo(str_replace("equipo/","",$ruta)); //El parámetro es lo que hayo después de "equipos"
         break;
 
     //Back-end
@@ -82,19 +87,19 @@ switch ($ruta){
     case "admin/salir":
         controlador("personas")->salir();
         break;
-    case "admin/personas":
+    case "admin/personas"://listar personas
         controlador("personas")->index();
         break;
     case "admin/personas/crear":
         controlador("personas")->crear();
         break;
-    case (strpos($ruta,"admin/personas/editar/") === 0):
+    case (strpos($ruta,"admin/personas/editar/") === 0)://editar el usuario
         controlador("personas")->editar(str_replace("admin/personas/editar/","",$ruta));
         break;
     case (strpos($ruta,"admin/personas/activar/") === 0):
         controlador("personas")->activar(str_replace("admin/personas/activar/","",$ruta));
         break;
-    case (strpos($ruta,"admin/personas/borrar/") === 0):
+    case (strpos($ruta,"admin/personas/borrar/") === 0)://confirmacion para borrar
         controlador("personas")->borrar(str_replace("admin/personas/borrar/","",$ruta));
         break;
     case "admin/equipos":

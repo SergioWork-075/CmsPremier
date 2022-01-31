@@ -32,12 +32,12 @@
                 </li>
                 <?php if ($_SESSION['equipos'] == 1){ ?>
                     <li>
-                        <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a>
+                        <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="equipos">equipos</a>
                     </li>
                 <?php } ?>
                 <?php if ($_SESSION['personas'] == 1){ ?>
                     <li>
-                        <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">personas</a>
+                        <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="Personas">Usuarios</a>
                     </li>
                 <?php } ?>
                 <li>
@@ -59,12 +59,12 @@
         </li>
         <?php if ($_SESSION['equipos'] == 1){ ?>
             <li>
-                <a href="<?php echo $_SESSION['home'] ?>admin/noticias" title="Noticias">Noticias</a>
+                <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="equipos">equipos</a>
             </li>
         <?php } ?>
         <?php if ($_SESSION['personas'] == 1){ ?>
             <li>
-                <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">personas</a>
+                <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="Personas">Usuarios</a>
             </li>
         <?php } ?>
         <li>
@@ -99,7 +99,7 @@
 
         <?php } else { ?>
 
-            <h2>Bienvenido, introduce el nombre y contraseña.</h2>
+            <h2>Bienvenido, introduce usuario y contraseña.</h2>
 
         <?php } ?>
     </header>

@@ -9,11 +9,11 @@
                 <div class="card-content">
                     <i class="grey-text material-icons medium">image</i>
                     <h4 class="grey-text">
-                        nuevo equipo
+                        Nuevo equipo
                     </h4><br><br>
                 </div>
                 <div class="card-action">
-                    <a href="<?php echo $_SESSION['home']."admin/equipos/crear" ?>" title="Añadir nueva equipo">
+                    <a href="<?php echo $_SESSION['home']."admin/equipos/crear" ?>" title="Añadir nuevo equipo">
                         <i class="material-icons">add_circle</i>
                     </a>
                 </div>
