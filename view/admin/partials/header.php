@@ -17,7 +17,7 @@
     <div class="nav-wrapper">
         <!--Logo-->
         <a href="<?php echo $_SESSION['home'] ?>admin" class="brand-logo" title="Inicio">
-            <img src="<?php echo $_SESSION['public'] ?>img/logo.svg" alt="Logo Harry Potter">
+            <img src="<?php echo $_SESSION['public'] ?>img/logo.png" alt="Logo Premier League">
         </a>
 
         <?php if (isset($_SESSION['persona'])){ ?>
@@ -32,7 +32,7 @@
                 </li>
                 <?php if ($_SESSION['equipos'] == 1){ ?>
                     <li>
-                        <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="equipos">equipos</a>
+                        <a href="<?php echo $_SESSION['home'] ?>admin/equipos" title="Equipos">Equipos</a>
                     </li>
                 <?php } ?>
                 <?php if ($_SESSION['personas'] == 1){ ?>

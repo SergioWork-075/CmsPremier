@@ -44,11 +44,11 @@ class PersonaController
         else if (isset($_POST["acceder"])){
 
             //Recupero los datos del formulario
-            $campo_Persona = filter_input(INPUT_POST, "persona", FILTER_SANITIZE_STRING);
+            $campo_persona = filter_input(INPUT_POST, "persona", FILTER_SANITIZE_STRING);
             $campo_clave = filter_input(INPUT_POST, "clave", FILTER_SANITIZE_STRING);
 
             //Busco al Persona en la base de datos
-            $rowset = $this->db->query("SELECT * FROM personas WHERE persona='$campo_Persona' AND activo=1 LIMIT 1");
+            $rowset = $this->db->query("SELECT * FROM personas WHERE persona='$campo_persona' AND activo=1 LIMIT 1");
 
             //Asigno resultado a una instancia del modelo
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
@@ -67,7 +67,7 @@ class PersonaController
                     //Guardo la fecha de último acceso
                     $ahora = new \DateTime("now", new \DateTimeZone("Europe/Madrid"));
                     $fecha = $ahora->format("Y-m-d H:i:s");
-                    $this->db->exec("UPDATE personas SET fecha_acceso='$fecha' WHERE persona='$campo_Persona'");
+                    $this->db->exec("UPDATE personas SET fecha_acceso='$fecha' WHERE persona='$campo_persona'");
 
                     //Redirección con mensaje
                     $this->view->redireccionConMensaje("admin","green","Bienvenido al panel de administración.");
@@ -106,7 +106,7 @@ class PersonaController
         $this->view->permisos("personas");
 
         //Recojo los Personas de la base de datos
-        $rowset = $this->db->query("SELECT * FROM Personas ORDER BY persona ASC");
+        $rowset = $this->db->query("SELECT * FROM personas ORDER BY persona ASC");
 
         //Asigno resultados a un array de instancias del modelo
         $personas = array();
@@ -184,7 +184,7 @@ class PersonaController
     public function editar($id){
 
         //Permisos
-        $this->view->permisos("Personas");
+        $this->view->permisos("personas");
 
         //Si ha pulsado el botón de guardar
         if (isset($_POST["guardar"])){
@@ -202,16 +202,16 @@ class PersonaController
             if ($id == "nuevo"){
 
                 //Creo un nuevo Persona
-                $this->db->exec("INSERT INTO personas (persona, clave, equipos, personas) VALUES ('$persona','$clave_encriptada',$equipos,$personas)");
+                $this->db->exec("INSERT INTO personas (persona, clave, equipos, personas) VALUES ('$persona','$clave_encriptada',$equipos, $personas)");
 
                 //Mensaje y redirección
-                $this->view->redireccionConMensaje("admin/Personas","green","El Persona <strong>$persona</strong> se creado correctamente.");
+                $this->view->redireccionConMensaje("admin/Personas","green","La persona <strong>$persona</strong> se creado correctamente.");
             }
             else{
 
                 //Actualizo el Persona
                 ($cambiar_clave) ?
-                    $this->db->exec("UPDATE personas SET persona='$persona',clave='$clave_encriptada',equipos=$equipos,Personas=$personas WHERE id='$id'") :
+                    $this->db->exec("UPDATE personas SET persona='$persona',clave='$clave_encriptada',equipos=$equipos,personas=$personas WHERE id='$id'") :
                     $this->db->exec("UPDATE personas SET persona='$persona',equipos=$equipos,personas=$personas WHERE id='$id'");
 
                 //Mensaje y redirección

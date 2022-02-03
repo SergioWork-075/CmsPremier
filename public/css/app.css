@@ -11,15 +11,14 @@ body{
 }
 
 nav{
-    background-color: #333;
+    background-color: #37003c;
     box-shadow: none;
     -webkit-box-shadow: none;
     padding: 0 2rem;
 }
 
 nav img{
-    width: 8rem;
-    padding-top: 0.8rem;
+    width: 4rem;
 }
 
 main {

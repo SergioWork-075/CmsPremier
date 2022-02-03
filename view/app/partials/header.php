@@ -17,7 +17,7 @@
     <div class="nav-wrapper">
         <!--Logo-->
         <a href="<?php echo $_SESSION['home'] ?>" class="brand-logo" title="Inicio">
-            <img src="<?php echo $_SESSION['public'] ?>img/logo.svg" alt="Logo Harry Potter">
+            <img src="<?php echo $_SESSION['public'] ?>img/logo.png" alt="Logo Harry Potter">
         </a>
 
         <!--Botón menú móviles-->

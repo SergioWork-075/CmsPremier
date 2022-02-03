@@ -13,7 +13,7 @@
                     </h4><br><br>
                 </div>
                 <div class="card-action">
-                    <a href="<?php echo $_SESSION['home']."admin/personas/crear" ?>" title="Añadir nuevo persona">
+                    <a href="<?php echo $_SESSION['home']."admin/personas/crear" ?>" title="Añadir nueva persona">
                         <i class="material-icons">add_circle</i>
                     </a>
                 </div>
@@ -30,7 +30,7 @@
                             <?php echo $row->persona ?>
                         </h4>
                         <strong>Personas: </strong><?php echo ($row->personas) ? "Sí" : "No" ?><br>
-                        <strong>Equipos: </strong><?php echo ($row->Equipos) ? "Sí" : "No" ?>
+                        <strong>Equipos: </strong><?php echo ($row->equipos) ? "Sí" : "No" ?>
                     </div>
                     <div class="card-action">
                         <a href="<?php echo $_SESSION['home']."admin/personas/editar/".$row->id ?>" title="Editar">

@@ -1,10 +1,10 @@
 <h3>
     <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a> <span>| </span>
-    <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">personas</a> <span>| </span>
+    <a href="<?php echo $_SESSION['home'] ?>admin/personas" title="personas">Personas</a> <span>| </span>
     <?php if ($datos->id){ ?>
-        <span>Editar <?php echo $datos->ersona ?></span>
+        <span>Editar <?php echo $datos->persona ?></span>
     <?php } else { ?>
-        <span>Nuevo persona</span>
+        <span>Nueva Persona</span>
     <?php } ?>
 </h3>
 <div class="row">
@@ -13,7 +13,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="persona" type="text" name="persona" value="<?php echo $datos->persona ?>">
-                <label for="ersona">persona</label>
+                <label for="persona">Usuario</label>
             </div>
             <?php $clase = ($datos->id) ? "hide" : "" ?>
             <div class="input-field col s12 <?php echo $clase ?>" id="password">
