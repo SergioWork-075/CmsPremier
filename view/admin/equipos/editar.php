@@ -14,11 +14,11 @@
             <div class="row">
                 <div class="input-field col s12">
                     <input id="nombre" type="text" name="nombre" value="<?php echo $datos->nombre ?>">
-                    <label for="nombre">Título</label>
+                    <label for="nombre">Nombre</label>
                 </div>
                 <div class="input-field col s12">
                     <input id="provincia" type="text" name="provincia" value="<?php echo $datos->provincia ?>">
-                    <label for="provincia">provincia</label>
+                    <label for="provincia">Provincia</label>
                 </div>
                 <div class="input-field col s12">
                     <?php $fecha = ($datos->fecha) ? date("d-m-Y", strtotime($datos->fecha)) : date("d-m-Y") ?>
@@ -45,11 +45,11 @@
             <div class="row">
                 <div class="input-field col s12">
                     <textarea id="introduccion" class="materialize-textarea" name="introduccion"><?php echo $datos->introduccion ?></textarea>
-                    <label for="introduccion">introduccion</label>
+                    <label for="introduccion">Introduccion</label>
                 </div>
                 <div class="input-field col s12">
                     <textarea id="descripcion" class="materialize-textarea" name="descripcion"><?php echo $datos->descripcion ?></textarea>
-                    <label for="descripcion">descripcion</label>
+                    <label for="descripcion">Descripcion</label>
                 </div>
             </div>
         </div>

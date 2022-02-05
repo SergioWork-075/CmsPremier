@@ -26,7 +26,7 @@
         <!--Menú de navegación-->
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-                <a href="<?php echo $_SESSION['home'] ?>" title="Inicio">Inicio</a>
+                <a href="<?php echo $_SESSION['home'] ?>" title="Inicio" style="color: #00FFA1">Premier League</a>
             </li>
             <li>
                 <a href="<?php echo $_SESSION['home'] ?>equipos" title="Equipos">Equipos</a>
@@ -67,8 +67,8 @@
 <main>
 
     <header>
-        <h1>Mi primer CMS</h1>
-        <h2>con POO, MVC, PHP y MySQL</h2>
+        <h1>Los equipos más destacados</h1>
+        <h2>Aquí se muestran los equipos más destacados de esta semana</h2>
     </header>
 
     <section class="container-fluid">

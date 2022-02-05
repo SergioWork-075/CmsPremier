@@ -19,7 +19,6 @@
         <a href="<?php echo $_SESSION['home'] ?>admin" class="brand-logo" title="Inicio">
             <img src="<?php echo $_SESSION['public'] ?>img/logo.png" alt="Logo Premier League">
         </a>
-
         <?php if (isset($_SESSION['persona'])){ ?>
 
             <!--Botón menú móviles-->
@@ -28,7 +27,7 @@
             <!--Menú de navegación-->
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li>
-                    <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio">Inicio</a>
+                    <a href="<?php echo $_SESSION['home'] ?>admin" title="Inicio" style="color: #00FFA1">Premier League</a>
                 </li>
                 <?php if ($_SESSION['equipos'] == 1){ ?>
                     <li>

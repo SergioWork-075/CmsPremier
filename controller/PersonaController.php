@@ -54,12 +54,12 @@ class PersonaController
             $row = $rowset->fetch(\PDO::FETCH_OBJ);
             $persona = new Persona($row);
 
-            //Si existe el Persona
+            //Si existe la persona
             if ($persona->persona){
                 //Compruebo la clave
                 if (password_verify($campo_clave,$persona->clave)) {
 
-                    //Asigno el Persona y los permisos la sesión
+                    //Asigno la persona y los permisos la sesión
                     $_SESSION["persona"] = $persona->persona;
                     $_SESSION["personas"] = $persona->personas;
                     $_SESSION["equipos"] = $persona->equipos;
@@ -79,7 +79,7 @@ class PersonaController
             }
             else{
                 //Redirección con mensaje
-                $this->view->redireccionConMensaje("admin","red","No existe ningún Persona con ese nombre.");
+                $this->view->redireccionConMensaje("admin","red","No existe ninguna persona con ese nombre.");
             }
         }
         //Le llevo a la página de acceso
@@ -136,7 +136,7 @@ class PersonaController
 
             //Mensaje y redirección
             ($consulta > 0) ? //Compruebo consulta para ver que no ha habido errores
-                $this->view->redireccionConMensaje("admin/personas","green","La Persona <strong>$persona->Persona</strong> se ha desactivado correctamente.") :
+                $this->view->redireccionConMensaje("admin/personas","green","La Persona <strong>$persona->persona</strong> se ha desactivado correctamente.") :
                 $this->view->redireccionConMensaje("admin/personas","red","Hubo un error al guardar en la base de datos.");
         }
 
@@ -205,7 +205,7 @@ class PersonaController
                 $this->db->exec("INSERT INTO personas (persona, clave, equipos, personas) VALUES ('$persona','$clave_encriptada',$equipos, $personas)");
 
                 //Mensaje y redirección
-                $this->view->redireccionConMensaje("admin/Personas","green","La persona <strong>$persona</strong> se creado correctamente.");
+                $this->view->redireccionConMensaje("admin/personas","green","La persona <strong>$persona</strong> se creado correctamente.");
             }
             else{
 

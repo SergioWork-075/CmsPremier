@@ -51,7 +51,7 @@ function controlador($nombre=null){
     switch($nombre){
         default: return new AppController; //Front-end
         case "equipos": return new EquipoController; //Back-end equipos
-        case "personas": return new PersonaController(); //Autentificacion y Back-end de personas
+        case "personas": return new PersonaController; //Autentificacion y Back-end de personas
     }
 
 }

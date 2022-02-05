@@ -4,7 +4,7 @@
         <div class="row">
             <div class="input-field col s12">
                 <input id="persona" type="text" name="persona" value="">
-                <label for="persona">persona</label>
+                <label for="persona">Persona</label>
             </div>
             <div class="input-field col s12">
                 <input id="clave" type="password" name="clave" value="">
